@@ -19,6 +19,8 @@
 		B122969B22A7BE5B00C9BE0D /* kibunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122969A22A7BE5B00C9BE0D /* kibunViewController.swift */; };
 		B12296A322A7C0DF00C9BE0D /* ryokouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12296A222A7C0DF00C9BE0D /* ryokouViewController.swift */; };
 		B12296A522A7C0FD00C9BE0D /* suujiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12296A422A7C0FD00C9BE0D /* suujiViewController.swift */; };
+		B155926F22BB2D93004FB4D9 /* custombutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155926E22BB2D93004FB4D9 /* custombutton.swift */; };
+		B155927122BB40A1004FB4D9 /* FeelingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155927022BB40A1004FB4D9 /* FeelingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		B122969A22A7BE5B00C9BE0D /* kibunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kibunViewController.swift; sourceTree = "<group>"; };
 		B12296A222A7C0DF00C9BE0D /* ryokouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ryokouViewController.swift; sourceTree = "<group>"; };
 		B12296A422A7C0FD00C9BE0D /* suujiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = suujiViewController.swift; sourceTree = "<group>"; };
+		B155926E22BB2D93004FB4D9 /* custombutton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = custombutton.swift; sourceTree = "<group>"; };
+		B155927022BB40A1004FB4D9 /* FeelingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingViewController.swift; sourceTree = "<group>"; };
 		E48FBD8D3347411CACA23731 /* Pods_Japanesestudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Japanesestudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,7 +93,9 @@
 				B12296A222A7C0DF00C9BE0D /* ryokouViewController.swift */,
 				B122962A228E4B4900C9BE0D /* Main.storyboard */,
 				B122969A22A7BE5B00C9BE0D /* kibunViewController.swift */,
+				B155927022BB40A1004FB4D9 /* FeelingViewController.swift */,
 				B110667C22B1F66F00F8A686 /* shigotoViewController.swift */,
+				B155926E22BB2D93004FB4D9 /* custombutton.swift */,
 				B122965A229250E700C9BE0D /* ReultViewController.swift */,
 				B122962D228E4B4B00C9BE0D /* Assets.xcassets */,
 				B122962F228E4B4B00C9BE0D /* LaunchScreen.storyboard */,
@@ -230,6 +236,8 @@
 				B122969B22A7BE5B00C9BE0D /* kibunViewController.swift in Sources */,
 				B110667D22B1F66F00F8A686 /* shigotoViewController.swift in Sources */,
 				B12296A322A7C0DF00C9BE0D /* ryokouViewController.swift in Sources */,
+				B155926F22BB2D93004FB4D9 /* custombutton.swift in Sources */,
+				B155927122BB40A1004FB4D9 /* FeelingViewController.swift in Sources */,
 				B1229629228E4B4900C9BE0D /* ViewController.swift in Sources */,
 				B1229627228E4B4900C9BE0D /* AppDelegate.swift in Sources */,
 				B122965B229250E700C9BE0D /* ReultViewController.swift in Sources */,
@@ -392,7 +400,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -413,7 +421,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

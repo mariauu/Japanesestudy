@@ -7,12 +7,12 @@ class ViewController: UIViewController {
     let properties = [
         "q1": [
             "image": "いちご",
-            "answer": "itigo",
+            "answer": "ichigo",
             "opt1": "mango",
             "opt2": "tamago",
-            "opt3": "itigo",
+            "opt3": "ichigo",
             "opt4": "dango",
-            "description": "This picture is「itigo」"
+            "description": "This picture is「ichgo」"
         ],
         "q2": [
             "image": "寿司",
@@ -108,7 +108,7 @@ class ViewController: UIViewController {
         ],
         "q12": [
             "image": "お好み焼き",
-            "answer": "okonoiyaki",
+            "answer": "okonomiyaki",
             "opt1": "okonomiyaki",
             "opt2": "tamagoyaki",
             "opt3": "sukiyaki",
@@ -154,7 +154,7 @@ class ViewController: UIViewController {
         "q17": [
             "image": "かぼちゃ",
             "answer": "kabocha",
-            "opt1": "kabotya",
+            "opt1": "kabocha",
             "opt2": "pi-man",
             "opt3": "meron",
             "opt4": "remon",
@@ -801,16 +801,29 @@ class ViewController: UIViewController {
         }
         
         // 次の問題に
-        setQuestion()
+//        setQuestion()
     }
     
     func showCorrectAlert(_ prop: [String:String]){
         let title = "正解"
         let message = prop["description"]
         let alert = CDAlertView(title: title, message: message,type: .success)
+//
+//        let action = CDAlertViewAction(title: "Next!")
+//
+        let action = CDAlertViewAction(
+            title: "Next!",
+            font: nil,
+            textColor: nil,
+            backgroundColor: nil,
+            handler: { action in
+                self.setQuestion()
+                return true
+        })
         
-        let action = CDAlertViewAction(title: "Next!")
         alert.add(action: action)
+        
+        
         //        アラートの表示
         alert.show()
         
@@ -821,7 +834,18 @@ class ViewController: UIViewController {
         let message = prop["description"]
         let alert = CDAlertView(title: title,message: message,type: .error)
         
-        let action = CDAlertViewAction(title: "Next!")
+//        let action = CDAlertViewAction(title: "Next!")
+        
+        let action = CDAlertViewAction(
+            title: "Next!",
+            font: nil,
+            textColor: nil,
+            backgroundColor: nil,
+            handler: { action in
+                self.setQuestion()
+                return true
+        })
+        
         alert.add(action: action)
         alert.show()
         

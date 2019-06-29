@@ -260,7 +260,7 @@ class ryokouViewController: UIViewController {
         }
         
         // 次の問題に
-        setQuestion()
+//        setQuestion()
     }
     
     func showCorrectAlert(_ prop: [String:String]){
@@ -268,7 +268,17 @@ class ryokouViewController: UIViewController {
         let message = prop["description"]
         let alert = CDAlertView(title: title, message: message,type: .success)
         
-        let action = CDAlertViewAction(title: "Next!")
+//        let action = CDAlertViewAction(title: "Next!")
+        let action = CDAlertViewAction(
+            title: "Next!",
+            font: nil,
+            textColor: nil,
+            backgroundColor: nil,
+            handler: { action in
+                self.setQuestion()
+                return true
+        })
+        
         alert.add(action: action)
         //        アラートの表示
         alert.show()
@@ -280,7 +290,18 @@ class ryokouViewController: UIViewController {
         let message = prop["description"]
         let alert = CDAlertView(title: title,message: message,type: .error)
         
-        let action = CDAlertViewAction(title: "Next!")
+//        let action = CDAlertViewAction(title: "Next!")
+        
+        let action = CDAlertViewAction(
+            title: "Next!",
+            font: nil,
+            textColor: nil,
+            backgroundColor: nil,
+            handler: { action in
+                self.setQuestion()
+                return true
+        })
+        
         alert.add(action: action)
         alert.show()
         

@@ -1,7 +1,15 @@
 import UIKit
 import CDAlertView
 
-class kibunViewController: UIViewController {
+class FeelingViewController: UIViewController {
+
+    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var btn1: UIButton!
+    @IBOutlet weak var btn2: UIButton!
+    @IBOutlet weak var btn3: UIButton!
+    @IBOutlet weak var btn4: UIButton!
+    
     let properties = [
         "q1": [
             "image": "気分.001",
@@ -32,12 +40,12 @@ class kibunViewController: UIViewController {
         ],
         "q4": [
             "image": "気分.004",
-            "answer": "kanashii",
-            "opt1": "kanashii",
+            "answer": "samishii",
+            "opt1": "samishii",
             "opt2": "ureshii",
             "opt3": "komaru",
             "opt4": "uresii",
-            "description": "This picture is「kanashii」"
+            "description": "This picture is「samishii」"
         ],
         
         "q5": [
@@ -185,7 +193,7 @@ class kibunViewController: UIViewController {
             "opt4": "kintyou",
             "description": "This picture is「hazukashii」"
         ],
-       
+        
         "q21": [
             "image": "気分.021",
             "answer": "kandou",
@@ -219,104 +227,62 @@ class kibunViewController: UIViewController {
         
         ]
     
-    @IBOutlet weak var btn1: UIButton!
-    
-    @IBOutlet weak var btn2: UIButton!
-    
-    @IBOutlet weak var btn3: UIButton!
-    
-    @IBOutlet weak var btn4: UIButton!
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-         setQuestion()
-        
-        
+        setQuestion()
     }
     
-     @IBOutlet weak var imageview: UIImageView!
-    
-    // 何問目かを把握するための変数
     var cnt = 0
-    // 正答数を格納するための変数
     var correct = 0
     
-    
-    // 問題をセットするためのメソッド
     func setQuestion() {
         cnt = cnt + 1
         if cnt > properties.count {
-            //            performSegue(withIdentifier: "toResult", sender: correct)
             return
         }
-        
         let prop: [String:String] = properties["q\(cnt)"]!
-        // 画像を設定
-        imageview.image = UIImage(named: prop["image"]!)
-        // 選択肢をランダムに並べかえる
-        var opts = [prop["opt1"], prop["opt2"], prop["opt3"], prop["opt4"]]
-        for i in 0 ..< opts.count{
+        imageView.image = UIImage(named: prop["image"]!)
+        var opts = [prop["opt1"],prop["opt2"],prop["opt3"],prop["opt4"]]
+        
+        for i in 0 ..< opts.count {
             let r = Int(arc4random_uniform(UInt32(opts.count)))
             opts.swapAt(i, r)
         }
-        // ボタンに選択肢を入れる
         btn1.setTitle(opts[0], for: .normal)
         btn2.setTitle(opts[1], for: .normal)
         btn3.setTitle(opts[2], for: .normal)
         btn4.setTitle(opts[3], for: .normal)
     }
     
-    @IBAction func didClickbtn(_ sender: UIButton) {
-        // 正解を取り出す
-        let prop: [String:String] = properties["q\(cnt)"]!
+    @IBAction func didTapBtn(_ sender: UIButton) {
+        let prop:[String:String] = properties["q\(cnt)"]!
         let answer = prop["answer"]!
-        
-        
-        // 選択した値が正解と等しいかチェック
         if answer == sender.titleLabel?.text! {
             correct = correct + 1
             showCorrectAlert(prop)
-        }else{
+        } else {
             showWrongAlert(prop)
         }
-        
-        // 次の問題に
-//        setQuestion()
     }
     
-    func showCorrectAlert(_ prop: [String:String]){
+    func showCorrectAlert(_ prop: [String:String]) {
         let title = "正解"
-        let message = prop["description"]
-        let alert = CDAlertView(title: title, message: message,type: .success)
-        
-//        let action = CDAlertViewAction(title: "Next!")
-        
-        let action = CDAlertViewAction(
-            title: "Next!",
-            font: nil,
-            textColor: nil,
-            backgroundColor: nil,
-            handler: { action in
-                self.setQuestion()
-                return true
-        })
-        
-        alert.add(action: action)
-        //        アラートの表示
+        let messege = prop["description"]
+        let alert = CDAlertView(title: title, message: messege, type: .success)
+        alert.add(action: getAction())
         alert.show()
-        
-        
     }
+    
     func showWrongAlert(_ prop: [String:String]) {
         let title = "不正解..."
-        let message = prop["description"]
-        let alert = CDAlertView(title: title,message: message,type: .error)
-        
-//        let action = CDAlertViewAction(title: "Next!")
-        
-        let action = CDAlertViewAction(
+        let messege = prop["description"]
+        let alert = CDAlertView(title: title, message: messege, type: .error)
+        alert.add(action: getAction())
+        alert.show()
+    }
+    
+    func getAction() -> CDAlertViewAction {
+        return CDAlertViewAction(
             title: "Next!",
             font: nil,
             textColor: nil,
@@ -325,23 +291,5 @@ class kibunViewController: UIViewController {
                 self.setQuestion()
                 return true
         })
-        
-        alert.add(action: action)
-        alert.show()
-        
-        
-        
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let id = segue.identifier {
-            if id == "toResult" {
-                //                let nextVC = segue.destination as! ResultViewController
-                //                nextVC.correct = correct
-            }
-        }
-    }
-    
-    
-    
 }

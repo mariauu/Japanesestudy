@@ -233,7 +233,19 @@ class shigotoViewController: UIViewController {
         let message = prop["description"]
         let alert = CDAlertView(title: title, message: message,type: .success)
         
-        let action = CDAlertViewAction(title: "Next!")
+        
+        let action = CDAlertViewAction(
+            title: "Next!",
+            font: nil,
+            textColor: nil,
+            backgroundColor: nil,
+            handler: { action in
+                self.setQuestion()
+                return true
+        })
+        
+        
+//        let action = CDAlertViewAction(title: "Next!")
         alert.add(action: action)
         //        アラートの表示
         alert.show()
